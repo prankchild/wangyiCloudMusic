@@ -1,0 +1,39 @@
+ <view class="songDetailContainer">
+    <view class="author">{{ song.ar[0].name }}</view>
+    <view class="circle"></view>
+    <image class="needle {{ isPlay ? 'needleRotate' : ''}}" src="../../static/images/song/needle.png" />  
+    
+    <view class="discContainer {{ isPlay ? 'discAnimation' : ''}}" >
+        <image  class="disc" src="../../static/images/song/disc.png" /> 
+        <image  class="musicImg" src="{{ song.al.picUrl }}" /> 
+    </view>
+
+    <!-- 进度条控制区域 -->
+    <view class="propressContainer">
+        <view class="propressControl">
+            <text class="start">{{ currentTime }}</text>
+            <!-- 总进度条 -->
+            <view class="barControl" bindtap="hadleUpdateProcess">
+                <view class="audio-currentTime-Bar" style="width: {{ currentWidth +'rpx' }}">
+                    <!-- 实时小圆球 -->
+                    <view class="audio-circle"></view>
+                </view>
+            </view>
+            <text class="end">{{ durationTime }}</text>
+        </view>
+    </view>
+
+
+    <!-- 底部控制播放区域 -->
+    <view class="musicControl">
+        <text class="iconfont icon-hanhan-01-01"></text>
+
+        <text bindtap="handleSwitch" id="pre" class="iconfont icon-047caozuo_shangyishou"></text>
+
+        <text bindtap="handlemusicPlay" class="iconfont {{ isPlay ? 'icon-045caozuo_zanting' : 'icon-044caozuo_bofang' }} big"></text>
+
+        <text bindtap="handleSwitch" id="next" class="iconfont icon-048caozuo_xiayishou"></text>
+
+        <text class="iconfont icon-hanhan-01-016"></text>
+    </view>
+ </view>
